@@ -38,6 +38,10 @@ void deleteVillager() {
 	string name;
 	cout << "\n Enter the name of the villager being deleted: ";
 	cin >> name;
+
+		if (villagers.erase(name)) {
+			cout << name << " deleted.\n";
+		}
 }
 
 void searchVillager() {
@@ -50,6 +54,18 @@ void modifyFriendshipLevel(bool increase) {
 	string name;
 	cout << "\nEnter villager name to " << (increase ? "increase" : "decrease") << "friendship level: ";
 	cin >> name;
+
+	auto it = villagers.find(name);
+	if (it != villagers.end()) {
+		int& level = get<0>(it->second);
+		if (increase) {
+			if (level < 10) ++level;
+		}
+		else {
+			if (level > 0) --level;
+		}
+		cout << "friendship level updated for" << name << ".\n";
+	}
 }
 
 int main() {
@@ -78,6 +94,7 @@ int main() {
 		case 7: cout << "Existing program.\n"; break;
 		default: cout << "Invaild choice! Please try again.\n";
 		}
-	}
+	} while (choice != 7);
+
 	return 0;
 }
