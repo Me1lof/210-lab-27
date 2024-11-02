@@ -6,6 +6,10 @@
 #include <map>
 #include <tuple>
 #include <string>
-
 using namespace std;
 
+map<string, tuple<int, string, string>> villagers;
+
+void displayVillagers() {
+	cout << "\nVillagers and their details:" << endl;
+}
