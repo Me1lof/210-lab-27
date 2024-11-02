@@ -32,6 +32,9 @@ void addVilager() {
 	cout << "Enter catchphrase: ";
 	cin.ignore();
 	getline(cin, catchphrase);
+
+	villagers[name] = make_tuple(friendshipLevel, species, catchphrase);
+	cout << name << " added.\n";
 }
 
 void deleteVillager() {
@@ -48,6 +51,13 @@ void searchVillager() {
 	string name;
 	cout << "\nEnter villager name to search: ";
 	cin >> name;
+
+	auto it = villagers.find(name);
+	if (it != villagers.end()) {
+		cout << name << " found - Friendship Level: " << get<0>(it->second)
+			<< ", Species: " << get<1>(it->second)
+			<< ", Catchphrase: " << get<2>(it->second) << endl;
+	}
 }
 
 void modifyFriendshipLevel(bool increase) {
