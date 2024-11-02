@@ -41,7 +41,15 @@ void deleteVillager() {
 }
 
 void searchVillager() {
+	string name;
+	cout << "\nEnter villager name to search: ";
+	cin >> name;
+}
 
+void modifyFriendshipLevel(bool increase) {
+	string name;
+	cout << "\nEnter villager name to " << (increase ? "increase" : "decrease") << "friendship level: ";
+	cin >> name;
 }
 
 int main() {
@@ -61,13 +69,14 @@ int main() {
 
 
 		switch (choice) {
-			case 1: 
-			case 2: displayVillagers(); break;
-			case 3:
-			case 4:
-			case 5:
-			case 6:
-			case 7:
+		case 1: addVilager(); break;
+		case 2: displayVillagers(); break;
+		case 3: deleteVillager(); break;
+		case 4: searchVillager(); break;
+		case 5: modifyFriendshipLevel(true); break;
+		case 6: modifyFriendshipLevel(false); break;
+		case 7: cout << "Existing program.\n"; break;
+		default: cout << "Invaild choice! Please try again.\n";
 		}
 	}
 	return 0;
