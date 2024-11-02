@@ -19,6 +19,30 @@ void displayVillagers() {
 	}
 }
 
+void addVilager() {
+	string name, species, catchphrase;
+	int friendshipLevel;
+
+	cout << "\nEnter villager name: ";
+	cin >> name;
+	cout << "Enter friendship level: ";
+	cin >> friendshipLevel;
+	cout << "Enter species: ";
+	cin >> species;
+	cout << "Enter catchphrase: ";
+	cin.ignore();
+	getline(cin, catchphrase);
+}
+
+void deleteVillager() {
+	string name;
+	cout << "\n Enter the name of the villager being deleted: ";
+	cin >> name;
+}
+
+void searchVillager() {
+
+}
 
 int main() {
 	int choice;
